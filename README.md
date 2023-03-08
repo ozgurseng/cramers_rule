@@ -1,4 +1,4 @@
-# Cramer's Rule
+# Cramer's Rule Calculator
 
 ## Table of Contents
 
