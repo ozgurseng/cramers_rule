@@ -1,0 +1,472 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    Cramer's Rule 3 x 3 Calculate - ozgurseng
+  </title>
+  <meta name="keywords" content="Software Engineer - SENG - HTML, CSS, JavaScript">
+  <meta name="author" content="Kelleci">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="js/cramer_3x3.js"></script>
+  <style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+
+<body class="d-flex h-100 text-center text-bg-dark">
+
+  <!-- Navbar Basladim -->
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0"><a href="https://github.com/ozgurseng" class="btn btn-default text-white">ozgurseng</a></h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="btn btn-lg btn-danger m-1 fw-bold py-1 px-0" href="index_tr.html">TR</a>
+          <a class="btn btn-lg btn-success m-1 fw-bold py-1 px-0" href="#">Repo</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content Basladim -->
+    <main class="px-3">
+      <h1>Cramer's Rule (3x3) </h1>
+      <p class="lead">This program is prepared to calculate the equation with 3 unknowns automatically with the cramer method.</p>
+      <p class="lead mb-5">
+
+      </p>
+
+      <form action="" id="ozgursengCramer3" class="">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <span class="m-1">1. Equation</span>
+            </div>
+
+            <div class="col-md-8">
+              <div class="input-group">
+                <input type="number" class="form-control text-center" id="x1" aria-label="" placeholder="0" size="2"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">x</span>
+                <span class="m-1"></span>
+                <input type="number" class="form-control" id="y1" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">y</span>
+                <span class="m-1"></span>
+                <input type="number" class="form-control" id="z1" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">z</span>
+                <span class="m-1"></span>
+                <span class="input-group-text">=</span>
+                <input type="number" class="form-control" id="s1" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container mt-2">
+          <div class="row">
+            <div class="col-md-2">
+              <span class="m-1">2. Equation</span>
+            </div>
+
+            <div class="col-md-8">
+              <div class="input-group">
+                <input type="number" class="form-control text-center" id="x2" aria-label="" placeholder="0" size="2"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">x</span>
+                <span class="m-1"></span>
+                <input type="number" class="form-control" id="y2" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">y</span>
+                <span class="m-1"></span>
+                <input type="number" class="form-control" id="z2" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">z</span>
+                <span class="m-1"></span>
+                <span class="input-group-text">=</span>
+                <input type="number" class="form-control" id="s2" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container mt-2">
+          <div class="row">
+            <div class="col-md-2">
+              <span class="m-1">3. Equation</span>
+            </div>
+
+            <div class="col-md-8">
+              <div class="input-group">
+                <input type="number" class="form-control text-center" id="x3" aria-label="" placeholder="0" size="2"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">x</span>
+                <span class="m-1"></span>
+                <input type="number" class="form-control" id="y3" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">y</span>
+                <span class="m-1"></span>
+                <input type="number" class="form-control" id="z3" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+                <span class="input-group-text">z</span>
+                <span class="m-1"></span>
+                <span class="input-group-text">=</span>
+                <input type="number" class="form-control" id="s3" aria-label="" placeholder="0"
+                  oninput="ozgurCalculate()" required>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+      <!-- === Start Bidibidi CMS 3 DIV === -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card text-start">
+              <div class="card-body">
+                <h4 class="card-title text-bg-dark text-center"> Equations</h4>
+                <p id="denklem1" class="m-1 fs-5 card-text text-dark"></p>
+                <p id="denklem2" class="m-1 fs-5 card-text text-dark"></p>
+                <p id="denklem3" class="m-1 fs-5 card-text text-dark"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card text-start m-1">
+              <div class="card-body">
+                <h4 class="card-title text-bg-dark text-center">Our matrix</h4>
+                <p class="card-text text-dark">
+                <div class="table-responsive">
+                  <table class="table table-light">
+                    <thead>
+                      <tr>
+                        <th scope="col">A</th>
+                        <th scope="col">Equations</th>
+                        <th scope="col">Result</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="">
+                        <td scope="row">
+                          <span id="x1_" class="m-1 fs-5"></span>
+                          <span id="y1_" class="m-1 fs-5"></span>
+                          <span id="z1_" class="m-1 fs-5"></span>
+                        </td>
+                        <td>x</td>
+                        <td><span id="s1_" class="m-1 fs-5"></span></td>
+                      </tr>
+                      <tr class="">
+                        <td scope="row">
+                          <span id="x2_" class="m-1 fs-5"></span>
+                          <span id="y2_" class="m-1 fs-5"></span>
+                          <span id="z2_" class="m-1 fs-5"></span>
+
+                        </td>
+                        <td>y</td>
+                        <td><span id="s2_" class="m-1 fs-5"></span></td>
+                      </tr>
+                      <tr class="">
+                        <td scope="row">
+                          <span id="x3_" class="m-1 fs-5"></span>
+                          <span id="y3_" class="m-1 fs-5"></span>
+                          <span id="z3_" class="m-1 fs-5"></span>
+
+                        </td>
+                        <td>z</td>
+                        <td><span id="s3_" class="m-1 fs-5"></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- === End Section 3 DIV === -->
+
+      <div class="card text-start mt-3">
+        <div class="card-body text-center">
+          <h4 class="card-title bg-primary text-white text-center h3">Remember Formule</h4>
+          <p class="m-1 fs-5 card-text text-dark">x = [x] / [A]</p>
+          <p class="m-1 fs-5 card-text text-dark">y = [y] / [A]</p>
+          <p class="m-1 fs-5 card-text text-dark">z = [z] / [A]</p>
+        </div>
+      </div>
+
+      <div class="card text-start mt-3">
+        <div class="card-body">
+          <h4 class="card-title text-bg-dark text-left">Calculate detA [A] </h4>
+          <p class="m-1 fs-5 card-text text-dark"></p>
+
+          <p id="detA_yaz_1" class="m-1 fs-5 card-text text-dark"></p>
+          <p id="detA_yaz" class="m-1 fs-5 card-text text-dark"></p>
+
+        </div>
+      </div>
+
+      <div class="card text-start mt-3">
+        <div class="card-body ">
+          <h4 class="card-title text-bg-dark text-left">Found X</h4>
+
+          <!-- === Start Bidibidi CMS 3 DIV === -->
+          <div class="row">
+            <div class="col-md-3">
+
+              <div class="table-responsive">
+                <table class="table table-light text-center">
+                  <thead>
+                    <tr>
+                      <th scope="col">X Matris</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="">
+                      <td scope="row">
+                        <span id="x_x1_" class="m-1 fs-5"></span>
+                        <span id="x_y1_" class="m-1 fs-5"></span>
+                        <span id="x_z1_" class="m-1 fs-5"></span>
+                      </td>
+
+                    </tr>
+                    <tr class="">
+                      <td scope="row">
+                        <span id="x_x2_" class="m-1 fs-5"></span>
+                        <span id="x_y2_" class="m-1 fs-5"></span>
+                        <span id="x_z2_" class="m-1 fs-5"></span>
+
+                      </td>
+
+                    </tr>
+                    <tr class="">
+                      <td scope="row">
+                        <span id="x_x3_" class="m-1 fs-5"></span>
+                        <span id="x_y3_" class="m-1 fs-5"></span>
+                        <span id="x_z3_" class="m-1 fs-5"></span>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p id="X_yaz_1" class="m-1 fs-5 card-text text-dark"></p>
+              <p id="detA_yaz" class="m-1 fs-5 card-text text-dark"></p>
+
+            </div>
+            <div class="col-md-9">
+              <p class="m-1 fs-5 card-text text-dark fw-bold">detX = [x]</p>
+              <p id="detX_yaz_1" class="m-1 fs-5 card-text text-dark"></p>
+              <p id="detX_yaz" class="m-1 fs-5 card-text text-dark"></p>
+              <hr class="border border-primary border-2 opacity-50">
+              <p id="x_yaz" class="m-1 fs-5 card-text text-success fw-bold">x = </p>
+
+            </div>
+
+          </div>
+        </div>
+        <!-- === End Section 3 DIV === -->
+      </div>
+
+            <div class="card text-start mt-3">
+              <div class="card-body ">
+                <h4 class="card-title text-bg-dark text-left">Found Y</h4>
+
+                <!-- === Start Bidibidi CMS 3 DIV === -->
+                <div class="row">
+                  <div class="col-md-3">
+
+                    <div class="table-responsive">
+                      <table class="table table-light text-center">
+                        <thead>
+                          <tr>
+                            <th scope="col">Y Matrix</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="">
+                            <td scope="row">
+                              <span id="y_x1_" class="m-1 fs-5"></span>
+                              <span id="y_y1_" class="m-1 fs-5"></span>
+                              <span id="y_z1_" class="m-1 fs-5"></span>
+                            </td>
+
+                          </tr>
+                          <tr class="">
+                            <td scope="row">
+                              <span id="y_x2_" class="m-1 fs-5"></span>
+                              <span id="y_y2_" class="m-1 fs-5"></span>
+                              <span id="y_z2_" class="m-1 fs-5"></span>
+
+                            </td>
+
+                          </tr>
+                          <tr class="">
+                            <td scope="row">
+                              <span id="y_x3_" class="m-1 fs-5"></span>
+                              <span id="y_y3_" class="m-1 fs-5"></span>
+                              <span id="y_z3_" class="m-1 fs-5"></span>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <p id="Y_yaz_1" class="m-1 fs-5 card-text text-dark"></p>
+
+                  </div>
+                  <div class="col-md-9">
+                    <p class="m-1 fs-5 card-text text-dark fw-bold">detY = [y]</p>
+                    <p id="detY_yaz_1" class="m-1 fs-5 card-text text-dark"></p>
+                    <p id="detY_yaz" class="m-1 fs-5 card-text text-dark"></p>
+                    <hr class="border border-primary border-2 opacity-50">
+                    <p id="y_yaz" class="m-1 fs-5 card-text text-success fw-bold">y = </p>
+
+                  </div>
+
+                </div>
+              </div>
+              <!-- === End Section 3 DIV === -->
+            </div>
+
+                        <div class="card text-start mt-3">
+                          <div class="card-body ">
+                            <h4 class="card-title text-bg-dark text-left">Found Z</h4>
+
+                            <!-- === Start Bidibidi CMS 3 DIV === -->
+                            <div class="row">
+                              <div class="col-md-3">
+
+                                <div class="table-responsive">
+                                  <table class="table table-light text-center">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Z Matrix</th>
+
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr class="">
+                                        <td scope="row">
+                                          <span id="z_x1_" class="m-1 fs-5"></span>
+                                          <span id="z_y1_" class="m-1 fs-5"></span>
+                                          <span id="z_z1_" class="m-1 fs-5"></span>
+                                        </td>
+
+                                      </tr>
+                                      <tr class="">
+                                        <td scope="row">
+                                          <span id="z_x2_" class="m-1 fs-5"></span>
+                                          <span id="z_y2_" class="m-1 fs-5"></span>
+                                          <span id="z_z2_" class="m-1 fs-5"></span>
+
+                                        </td>
+
+                                      </tr>
+                                      <tr class="">
+                                        <td scope="row">
+                                          <span id="z_x3_" class="m-1 fs-5"></span>
+                                          <span id="z_y3_" class="m-1 fs-5"></span>
+                                          <span id="z_z3_" class="m-1 fs-5"></span>
+
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+
+                                <p id="Y_yaz_1" class="m-1 fs-5 card-text text-dark"></p>
+
+                              </div>
+                              <div class="col-md-9">
+                                <p class="m-1 fs-5 card-text text-dark fw-bold">detZ = [z]</p>
+                                <p id="detZ_yaz_1" class="m-1 fs-5 card-text text-dark"></p>
+                                <p id="detZ_yaz" class="m-1 fs-5 card-text text-dark"></p>
+                                <hr class="border border-primary border-2 opacity-50">
+                                <p id="z_yaz" class="m-1 fs-5 card-text text-success fw-bold">z = </p>
+
+                              </div>
+
+                            </div>
+                          </div>
+                          <!-- === End Section 3 DIV === -->
+                        </div>
+
+                              <div class="card text-start mt-3">
+                                <div class="card-body">
+                                  <h4 class="card-title text-bg-warning text-center">For Matlab</h4>
+
+                                   <code class="m-1 fs-5 card-text text-dark">
+                                <br>A= <span id="matlabA" class="text-dark"></span>
+                                <br>detA = det(A)
+                                <br><br>
+                                <br>x = <span id="matlabX" class="text-dark"></span>
+                                <br>detx = det(x)
+                                <br>xResult = detx/detA
+                                <br><br>
+                                <br>y = <span id="matlabY" class="text-dark"></span>
+                                <br>dety = det(y)
+                              <br> yResult = dety/detA
+                                <br><br>
+                                <br>z = <span id="matlabZ" class="text-dark"></span>
+                              <br> detz = det(z)
+                                <br>zResult = detz/detA
+                                <br><br>
+                              <br> ozgur_result_x_y_z = [xResult,yResult,zResult]
+                                </code>
+
+                                </div>
+                              </div>
+                              <div class="alert alert-info mt-1" role="alert">
+                                <strong>MATLAB</strong> You can try the code here. <a href="https://octave-online.net" target="_blank" rel="noopener noreferrer">https://octave-online.net/</a>
+                              </div>
+
+    </main>
+
+    <!-- Footer Basladim -->
+    <footer class="mt-auto text-white-50">
+      <p>This project was developed by ozgur. For more <a href="https://github.com/ozgurseng"
+          class="text-white">ozgurseng</a>.</p>
+    </footer>
+  </div>
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
