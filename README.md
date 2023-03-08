@@ -13,7 +13,7 @@ This program is prepared to calculate the equation with 3 unknowns automatically
 
 ## Getting Started <a name = "getting_started"></a>
 
-Visit: index.html | index_tr.html
+Visit: https://ozgurseng.github.io/cramers_rule
 
 ## Usage <a name = "usage"></a>
 
