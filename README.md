@@ -18,3 +18,4 @@ Visit: https://ozgurseng.github.io/cramers_rule
 ## Usage <a name = "usage"></a>
 
 Just fill in the blanks
+The program will prepare all the codes. It will also generate code for Malab
